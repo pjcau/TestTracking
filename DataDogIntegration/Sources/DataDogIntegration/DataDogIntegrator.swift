@@ -23,7 +23,7 @@ public class DataDogIntegrator : ServiceReportingIntegrator {
     }
     
     
-    public func createTracer() -> NetworkTracker {
+    public func createTracer() -> NetworkTracker? {
         return DataDogTracer()
     }
     

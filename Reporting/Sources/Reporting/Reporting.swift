@@ -1,6 +1,7 @@
 import Networking
 import Tracking
 import DataDogIntegration
+import FirebaseIntegrator
 import ServiceReportingIntegrator
 
 
@@ -12,11 +13,17 @@ public struct Reporting {
     }
     
     public static func configure(permission: PermissionTracking) {
-        // no mandatory //deve stare su una vista
+        /// no mandatory //deve stare su una vista
         
         let dataDogIntegrator = DataDogIntegrator(permission:permission)
         
         Reporting.addInIngetration(dataDogIntegrator, network:true)
+        
+        ///
+    
+        let firebaseIntegrator = FirabaseIntegrator(permission:permission)
+        
+        Reporting.addInIngetration(firebaseIntegrator, network:false)
         
     }
     
@@ -24,8 +31,8 @@ public struct Reporting {
         
         TrackingManager.shared.add(service: serviceIntegrator.createTracker())
         
-        if network {
-            Networking.register(serviceIntegrator.createTracer())
+        if let tracer = serviceIntegrator.createTracer(), network {
+            Networking.register(tracer)
         }
     }
 }

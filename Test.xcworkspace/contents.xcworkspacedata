@@ -14,6 +14,9 @@
       location = "group:Injection">
    </FileRef>
    <FileRef
+      location = "group:FirebaseIntegrator">
+   </FileRef>
+   <FileRef
       location = "group:DataDogIntegration">
    </FileRef>
    <FileRef

@@ -6,5 +6,5 @@ public protocol ServiceReportingIntegrator {
     
      func createTracker() -> TrackingService
     
-     func createTracer() -> NetworkTracker
+     func createTracer() -> NetworkTracker?
 }

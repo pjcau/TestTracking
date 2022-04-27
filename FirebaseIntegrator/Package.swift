@@ -4,33 +4,32 @@
 import PackageDescription
 
 let package = Package(
-    name: "Reporting",
+    name: "FirebaseIntegrator",
     platforms: [.iOS(.v14)],
+
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "Reporting",
-            targets: ["Reporting"]),
+            name: "FirebaseIntegrator",
+            targets: ["FirebaseIntegrator"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
+        // .package(url: /* package url */, from: "1.0.0"),
         .package(path: "../ServiceReportingIntegrator"),
-        .package(path: "../DataDogIntegration"),
-        .package(path: "../FirebaseIntegrator")
-
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", .upToNextMajor(from: "8.15.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "Reporting",
+            name: "FirebaseIntegrator",
             dependencies: [
                 .product(name: "ServiceReportingIntegrator", package: "ServiceReportingIntegrator"),
-                .product(name: "DataDogIntegration", package: "DataDogIntegration"),
-                .product(name: "FirebaseIntegrator", package: "FirebaseIntegrator")
+                .product(name: "FirebaseAnalyticsWithoutAdIdSupport", package: "firebase-ios-sdk")
             ]),
         .testTarget(
-            name: "ReportingTests",
-            dependencies: ["Reporting"]),
+            name: "FirebaseIntegratorTests",
+            dependencies: ["FirebaseIntegrator"]),
     ]
 )

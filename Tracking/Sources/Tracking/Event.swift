@@ -28,4 +28,16 @@ public enum Event: CaseIterable{
             
         }
     }
+    
+    public var paramenters: [String : Any]? {
+        switch self {
+            
+        case .startUp        : return ["startUp":"Ola"]
+        case .loginWithGoogle       : return ["loginWithGoogle":"Ola"]
+        case .loginWithEmail     : return ["loginWithEmail":"Ola"]
+        case .loginWithApple     : return ["loginWithApple":"Ola"]
+            
+        }
+    }
+    
 }
