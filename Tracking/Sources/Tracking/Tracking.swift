@@ -3,7 +3,7 @@ import Foundation
 public enum PermissionTracking {
     case allow
     case deny
-    case noAsked
+    case pending
 }
 
 public protocol TrackingService {
