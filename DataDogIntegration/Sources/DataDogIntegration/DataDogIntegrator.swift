@@ -68,7 +68,6 @@ public class DataDogIntegrator : ServiceReportingIntegrator {
             .build()
         
         logger.debug("Datadog init")
-        logger.info("StartUp", attributes: ["context": "startup flow"])
     }
     
 }

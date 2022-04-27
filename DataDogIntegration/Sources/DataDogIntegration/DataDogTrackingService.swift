@@ -10,9 +10,16 @@ import Tracking
 import Datadog
 
 public final class DataDogTrackingService: TrackingService {
+    let logger = Logger.builder
+        .sendNetworkInfo(true)
+        .printLogsToConsole(true, usingFormat: .shortWith(prefix: "[iOS App] "))
+        .build()
+    
     
     public func track(event: Event) {
-        //
+
+        
+        logger.info(event.name, attributes: ["context": "startup flow"])
     }
     
     public var trackingEvents: [Event] {

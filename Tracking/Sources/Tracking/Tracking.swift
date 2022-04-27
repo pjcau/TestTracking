@@ -7,11 +7,9 @@ public enum PermissionTracking {
 }
 
 public protocol TrackingService {
-
     func track(event: Event)
     
     var trackingEvents: [Event] { get }
-
 }
 
 

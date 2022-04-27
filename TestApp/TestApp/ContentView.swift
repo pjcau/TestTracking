@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Tracking
 
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .onAppear(perform: {
+                TrackingManager.shared.track(event: Event.startUp)
+            })
     }
 }

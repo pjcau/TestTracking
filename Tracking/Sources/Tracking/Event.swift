@@ -18,7 +18,7 @@ public enum Event: CaseIterable{
 
     // `name` is the name which you want to register events
     // in the analytics dashboards
-    var name: String {
+    public var name: String {
         switch self {
             
         case .startUp        : return "startUp"
